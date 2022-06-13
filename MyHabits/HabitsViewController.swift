@@ -10,7 +10,9 @@ import UIKit
 class HabitsViewController: UIViewController {
     
     private let collectionsView: UICollectionView = {
+        
         let layout = UICollectionViewFlowLayout()
+        
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.register(ProgressCollectionViewCell.self, forCellWithReuseIdentifier: "ProgressCollectionViewCell")
         collection.register(HabitCollectionViewCell.self, forCellWithReuseIdentifier: "HabitCollectionViewCell")

@@ -64,7 +64,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfP-F8-cr9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1654" y="-547"/>
+            <point key="canvasLocation" x="1523" y="-547"/>
         </scene>
         <!--Habit View Controller-->
         <scene sceneID="UNs-w0-8dv">
@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LU4-L6-mKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477" y="-547"/>
+            <point key="canvasLocation" x="2268" y="-547"/>
         </scene>
         <!--Информация-->
         <scene sceneID="PM9-kK-Mjz">

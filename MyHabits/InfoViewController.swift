@@ -10,6 +10,7 @@ import UIKit
 class InfoViewController: UIViewController {
     
     let scrollView: UIScrollView = {
+        
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         return scroll
@@ -17,6 +18,7 @@ class InfoViewController: UIViewController {
     }()
     
     let contentView: UIView = {
+        
         let content = UIView()
         content.translatesAutoresizingMaskIntoConstraints = false
         return content
@@ -24,6 +26,7 @@ class InfoViewController: UIViewController {
     }()
     
     let labelView: UILabel = {
+        
         let label = UILabel()
         label.text = "Привычка за 21 день"
         label.backgroundColor = .white
@@ -34,6 +37,7 @@ class InfoViewController: UIViewController {
     }()
     
     let infoLabel: UILabel = {
+        
         let label = UILabel()
         label.text = #"""
             Прохождение этапов, за которые за 21 день вырабатывается привычка, подчиняется следующему алгоритму:\#n
@@ -67,11 +71,13 @@ class InfoViewController: UIViewController {
     }
     
     func setup() {
+        
         view.addSubview(scrollView)
         [labelView, infoLabel].forEach { contentView.addSubview($0) }
         scrollView.addSubview(contentView)
         
         NSLayoutConstraint.activate([
+            
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -93,5 +99,4 @@ class InfoViewController: UIViewController {
             
         ])
     }
-  
 }

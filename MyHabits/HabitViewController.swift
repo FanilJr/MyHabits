@@ -90,6 +90,7 @@ class HabitViewController: UIViewController {
         description.text = "Каждый день в "
         description.backgroundColor = .white
         description.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        description.translatesAutoresizingMaskIntoConstraints = false
         return description
         
     }()
@@ -105,7 +106,7 @@ class HabitViewController: UIViewController {
         
     }()
     
-    private let deleteButton = {
+    private let deleteButton: UIButton = {
         
         let delete = UIButton()
         delete.tintColor = .red
@@ -113,7 +114,9 @@ class HabitViewController: UIViewController {
         delete.setTitleColor(.red, for: .normal)
         delete.translatesAutoresizingMaskIntoConstraints = false
         delete.addTarget(self, action: #selector(deleteHabit), for: .touchUpInside)
-    }
+        return delete
+        
+    }()
     
     
     override func viewDidLoad() {
@@ -125,18 +128,121 @@ class HabitViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor(named: "Purple")
         navigationController?.navigationBar.scrollEdgeAppearance = UINavigationBarAppearance()
 
+        setup()
+        let colorGesture = UITapGestureRecognizer(target: self, action: #selector(colorGesture))
+        colorView.addGestureRecognizer(colorGesture)
     }
     
-    @objc func deleteHabit() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.topItem?.title = (state == .save ? "Создать" : "Править")
+        setup()
+        
+    }
+}
+    
+extension HabitViewController {
+    
+    @objc func deleteHabit() {
+        let habitsStore = HabitsStore.shared
+        let alertController = UIAlertController(title: "Удалить привычку", message: "Вы хотите удалить привычку \(habit?.name ?? " ") ?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Отмена", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: {
+            _ in for (index, storaheHabit) in habitsStore.habits.enumerated() {
+                if storaheHabit.name == self.habit?.name {
+                    habitsStore.habits.remove(at: index)
+                    self.navigationController?.dismiss(animated: false, completion: nil)
+                    break
+                }
+            }
+        }))
+        present(alertController, animated: true, completion: nil)
     }
     
     @objc func createHabit() {
+        let habitsStore = HabitsStore.shared
+        let habitik = Habit(name: textField.text!, date: datePicket.date, color: colorView.backgroundColor!)
+        
+        if state == .save {
+            habitsStore.habits.append(habitik)
+        } else {
+            for (index, storageHabit) in habitsStore.habits.enumerated() {
+                if storageHabit.name == habit?.name {
+                    habitik.trackDates = storageHabit.trackDates
+                    habitsStore.habits[index] = habitik
+                    habit? = habitik
+                }
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
+        
+    @objc func cancelCreateHabit() {
+        dismiss(animated: true, completion: nil)
         
     }
     
-    @objc func cancelCreateHabit() {
-        
+    @objc private func colorGesture(gesure: UITapGestureRecognizer) {
+        presentColor(colorView.backgroundColor!)
     }
+    
+    private func presentColor(_ color: UIColor) {
+        let pickerViewController = UIColorPickerViewController()
+        pickerViewController.delegate = self
+        pickerViewController.selectedColor = color
+        pickerViewController.title = "Выберите цвет"
+        present(pickerViewController, animated: true, completion: nil)
+    }
+    
+    func setup() {
+        [nameLabel,textField,colorLabel,colorView,timeLabel,timeDescription,datePicket].forEach { view.addSubview($0) }
+     
+        if state == .edit {
+            view.addSubview(deleteButton)
+            NSLayoutConstraint.activate([
+                deleteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                deleteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            ])
+        }
+        
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 21),
+            nameLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+        
+            textField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 7),
+            textField.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 15),
+            colorLabel.topAnchor.constraint(equalTo: textField.bottomAnchor,constant: 15),
+            colorLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,constant: 16),
+            colorLabel.topAnchor.constraint(equalTo: textField.bottomAnchor,constant: 15),
+            colorLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,constant: 16),
+            
+            
+        
+            colorView.topAnchor.constraint(equalTo: colorLabel.bottomAnchor, constant: 7),
+            colorView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            colorView.heightAnchor.constraint(equalToConstant: 30),
+            colorView.widthAnchor.constraint(equalTo: colorView.heightAnchor),
+            
+            timeLabel.topAnchor.constraint(equalTo: colorView.bottomAnchor, constant: 15),
+            timeLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
 
+            timeDescription.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 7),
+            timeDescription.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+
+            datePicket.centerYAnchor.constraint(equalTo: timeDescription.centerYAnchor),
+            datePicket.leftAnchor.constraint(equalTo: timeDescription.rightAnchor)
+        ])
+    }
+    
 }
+
+extension HabitViewController: UIColorPickerViewControllerDelegate {
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        colorView.backgroundColor = viewController.selectedColor
+        textField.textColor = colorView.backgroundColor
+    }
+}
+
+
