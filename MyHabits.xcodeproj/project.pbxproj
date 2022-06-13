@@ -15,6 +15,7 @@
 		844FC43B28571A10002F42C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844FC43928571A10002F42C2 /* LaunchScreen.storyboard */; };
 		844FC44328571DB8002F42C2 /* HabitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FC44228571DB8002F42C2 /* HabitsStore.swift */; };
 		844FC44528571F29002F42C2 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FC44428571F29002F42C2 /* HabitsViewController.swift */; };
+		844FC447285720AB002F42C2 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FC446285720AB002F42C2 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		844FC43C28571A10002F42C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		844FC44228571DB8002F42C2 /* HabitsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsStore.swift; sourceTree = "<group>"; };
 		844FC44428571F29002F42C2 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
+		844FC446285720AB002F42C2 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		844FC42D28571A08002F42C2 /* MyHabits */ = {
 			isa = PBXGroup;
 			children = (
+				844FC446285720AB002F42C2 /* InfoViewController.swift */,
 				844FC44428571F29002F42C2 /* HabitsViewController.swift */,
 				844FC44228571DB8002F42C2 /* HabitsStore.swift */,
 				844FC42E28571A08002F42C2 /* AppDelegate.swift */,
@@ -148,6 +151,7 @@
 				844FC43328571A08002F42C2 /* ViewController.swift in Sources */,
 				844FC42F28571A08002F42C2 /* AppDelegate.swift in Sources */,
 				844FC44528571F29002F42C2 /* HabitsViewController.swift in Sources */,
+				844FC447285720AB002F42C2 /* InfoViewController.swift in Sources */,
 				844FC43128571A08002F42C2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
