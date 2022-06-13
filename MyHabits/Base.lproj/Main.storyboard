@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,12 +37,50 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Сегодня" id="tlr-Gt-kTz">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="NOp-gn-rpt"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="NOp-gn-rpt">
+                            <color key="tintColor" name="Purple"/>
+                            <connections>
+                                <segue destination="R4j-Bx-Fgu" kind="presentation" id="vOp-4z-Ttv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpu-CL-1Qe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="767" y="-547"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zTY-Ax-mdj">
+            <objects>
+                <navigationController id="R4j-Bx-Fgu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="oik-5V-6Gp"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Se-zv-w4m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gVu-yG-S8U" kind="relationship" relationship="rootViewController" id="Az1-b0-aLQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MfP-F8-cr9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1654" y="-547"/>
+        </scene>
+        <!--Habit View Controller-->
+        <scene sceneID="UNs-w0-8dv">
+            <objects>
+                <viewController id="gVu-yG-S8U" customClass="HabitViewController" customModule="MyHabits" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mZQ-jq-tyi" customClass="HabitCollectionViewCell" customModule="MyHabits" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8Za-0d-PQ4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KaK-sl-5DK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LU4-L6-mKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2477" y="-547"/>
         </scene>
         <!--Информация-->
         <scene sceneID="PM9-kK-Mjz">
@@ -67,7 +106,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DvG-lg-fnO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="Purple"/>
                     </tabBar>
                     <connections>
                         <segue destination="v3m-07-MF6" kind="relationship" relationship="viewControllers" id="Rms-gh-Eds"/>
@@ -98,6 +137,9 @@
     <resources>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="rectangle.grid.1x2.fill" catalog="system" width="128" height="101"/>
+        <namedColor name="Purple">
+            <color red="0.63137254901960782" green="0.086274509803921567" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

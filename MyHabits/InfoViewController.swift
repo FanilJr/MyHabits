@@ -62,6 +62,7 @@ class InfoViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        
         setup()
     }
     
