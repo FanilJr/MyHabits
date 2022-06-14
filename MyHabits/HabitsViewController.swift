@@ -24,8 +24,12 @@ class HabitsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionsView.backgroundColor = UIColor(named: "LightGray")
-        //collectionsView.delegate = self
-        //collectionsView.dataSource = self
+        collectionsView.delegate = self
+        collectionsView.dataSource = self
+        
+        setup()
+        
+
 
     }
     
@@ -48,6 +52,54 @@ private extension HabitsViewController {
             collectionsView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+}
+
+extension HabitsViewController: HabitCollectionViewCellDelegate {
+    func updateData() {
+        collectionsView.reloadData()
+    }
+}
+
+extension HabitsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section != 0 {
+            
+            let habitDetailsView = HabitDetailsViewController()
+            habitDetailsView.habit = HabitsStore.shared.habits[indexPath.row]
+            habitDetailsView.title = HabitsStore.shared.habits[indexPath.row].name
+            navigationController?.pushViewController(habitDetailsView, animated: true)
+            
+        }
+    }
+}
+
+extension HabitsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return HabitsStore.shared.habits.count
+        default:
+            return 0
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProgressCollectionViewCell", for: indexPath) as! ProgressCollectionViewCell
+            cell
+        default:
+            <#code#>
+        }
+    }
+    
+    
 }
 
 

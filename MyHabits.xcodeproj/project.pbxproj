@@ -18,6 +18,8 @@
 		844FC449285745EF002F42C2 /* ProgressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FC448285745EF002F42C2 /* ProgressCollectionViewCell.swift */; };
 		844FC44B285746BA002F42C2 /* HabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FC44A285746B9002F42C2 /* HabitCollectionViewCell.swift */; };
 		844FC44D2857A7E0002F42C2 /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FC44C2857A7E0002F42C2 /* HabitViewController.swift */; };
+		844FC44F28588D7F002F42C2 /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FC44E28588D7F002F42C2 /* HabitDetailsViewController.swift */; };
+		844FC45128588E73002F42C2 /* HabitDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FC45028588E73002F42C2 /* HabitDetailsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		844FC448285745EF002F42C2 /* ProgressCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCollectionViewCell.swift; sourceTree = "<group>"; };
 		844FC44A285746B9002F42C2 /* HabitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCollectionViewCell.swift; sourceTree = "<group>"; };
 		844FC44C2857A7E0002F42C2 /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
+		844FC44E28588D7F002F42C2 /* HabitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsViewController.swift; sourceTree = "<group>"; };
+		844FC45028588E73002F42C2 /* HabitDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				844FC43728571A10002F42C2 /* Assets.xcassets */,
 				844FC43928571A10002F42C2 /* LaunchScreen.storyboard */,
 				844FC43C28571A10002F42C2 /* Info.plist */,
+				844FC44E28588D7F002F42C2 /* HabitDetailsViewController.swift */,
+				844FC45028588E73002F42C2 /* HabitDetailsTableViewCell.swift */,
 			);
 			path = MyHabits;
 			sourceTree = "<group>";
@@ -156,10 +162,12 @@
 				844FC44328571DB8002F42C2 /* HabitsStore.swift in Sources */,
 				844FC42F28571A08002F42C2 /* AppDelegate.swift in Sources */,
 				844FC44B285746BA002F42C2 /* HabitCollectionViewCell.swift in Sources */,
+				844FC45128588E73002F42C2 /* HabitDetailsTableViewCell.swift in Sources */,
 				844FC44D2857A7E0002F42C2 /* HabitViewController.swift in Sources */,
 				844FC449285745EF002F42C2 /* ProgressCollectionViewCell.swift in Sources */,
 				844FC44528571F29002F42C2 /* HabitsViewController.swift in Sources */,
 				844FC447285720AB002F42C2 /* InfoViewController.swift in Sources */,
+				844FC44F28588D7F002F42C2 /* HabitDetailsViewController.swift in Sources */,
 				844FC43128571A08002F42C2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
