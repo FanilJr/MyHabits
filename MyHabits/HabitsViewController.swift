@@ -36,6 +36,9 @@ class HabitsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.topItem?.title = "Сегодня"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         collectionsView.reloadData()
     }
 }
@@ -61,9 +64,9 @@ extension HabitsViewController: HabitCollectionViewCellDelegate {
 }
 
 extension HabitsViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section != 0 {
-            
             let habitDetailsView = HabitDetailsViewController()
             habitDetailsView.habit = HabitsStore.shared.habits[indexPath.row]
             habitDetailsView.title = HabitsStore.shared.habits[indexPath.row].name
@@ -93,7 +96,7 @@ extension HabitsViewController: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProgressCollectionViewCell", for: indexPath) as! ProgressCollectionViewCell
-            cell
+            
         default:
             <#code#>
         }
