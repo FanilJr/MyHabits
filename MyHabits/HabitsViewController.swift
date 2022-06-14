@@ -23,6 +23,9 @@ class HabitsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionsView.backgroundColor = UIColor(named: "LightGray")
+        //collectionsView.delegate = self
+        //collectionsView.dataSource = self
 
     }
     
@@ -47,10 +50,5 @@ private extension HabitsViewController {
     }
 }
 
-/*extension HabitsViewController: HabitCollectionViewCell {
-    
-    func update() {
-        collectionsView.reloadData()
-    }
-}
-*/
+
+

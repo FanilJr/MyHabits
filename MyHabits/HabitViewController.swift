@@ -214,15 +214,11 @@ extension HabitViewController {
             textField.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 15),
             colorLabel.topAnchor.constraint(equalTo: textField.bottomAnchor,constant: 15),
             colorLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,constant: 16),
-            colorLabel.topAnchor.constraint(equalTo: textField.bottomAnchor,constant: 15),
-            colorLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,constant: 16),
-            
-            
         
             colorView.topAnchor.constraint(equalTo: colorLabel.bottomAnchor, constant: 7),
             colorView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             colorView.heightAnchor.constraint(equalToConstant: 30),
-            colorView.widthAnchor.constraint(equalTo: colorView.heightAnchor),
+            colorView.widthAnchor.constraint(equalToConstant: 30),
             
             timeLabel.topAnchor.constraint(equalTo: colorView.bottomAnchor, constant: 15),
             timeLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
