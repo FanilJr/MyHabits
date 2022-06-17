@@ -108,6 +108,7 @@ private extension HabitCollectionViewCell {
     }
     
     func setup() {
+        
         [namelabel, dateLabel, trackLabel, imageView].forEach { contentView.addSubview($0) }
         
         NSLayoutConstraint.activate([
