@@ -14,15 +14,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        if #available(iOS 15, *) {
-            let appearance = UINavigationBarAppearance()
+      /* if #available(iOS 15, *) {
+            
+           let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
-          //  let blur = UIBlurEffect(style: .light)
-          //  let blurEffectView = UIVisualEffectView(effect: blur)
-            
-}
+           
+           let bluer = UIBlurEffect(style: .light)
+           let bluerEffect = UIVisualEffectView(effect: bluer)
+        }*/
+        
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).

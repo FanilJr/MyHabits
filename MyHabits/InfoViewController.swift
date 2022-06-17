@@ -13,6 +13,7 @@ class InfoViewController: UIViewController {
         
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.backgroundColor = .clear
         return scroll
         
     }()
@@ -20,6 +21,7 @@ class InfoViewController: UIViewController {
     let contentView: UIView = {
         
         let content = UIView()
+        content.backgroundColor = .clear
         content.translatesAutoresizingMaskIntoConstraints = false
         return content
         
@@ -66,22 +68,34 @@ class InfoViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
+        blure()
+
         setup()
     }
     
+    func blure() {
+        let bluer = UIBlurEffect(style: .light)
+        let bluerView = UIVisualEffectView(effect: bluer)
+        
+        bluerView.frame = (tabBarController?.tabBar.bounds)!
+        //view.addSubview(bluerView)
+       // tabBarController?.tabBar.addSubview(bluerView)
+    }
+    
+    
+    
     func setup() {
         
-        view.addSubview(scrollView)
         [labelView, infoLabel].forEach { contentView.addSubview($0) }
         scrollView.addSubview(contentView)
+        view.addSubview(scrollView)
         
         NSLayoutConstraint.activate([
             
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor),

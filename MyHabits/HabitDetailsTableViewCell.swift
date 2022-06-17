@@ -20,23 +20,31 @@ class HabitDetailsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setup()
+        
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
         setup()
+        
     }
 }
 
 private extension HabitDetailsTableViewCell {
     
     func setup() {
+        
         contentView.addSubview(date)
+        
         NSLayoutConstraint.activate([
+            
             date.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 11),
             date.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 16),
             date.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -11)
+            
         ])
     }
 }

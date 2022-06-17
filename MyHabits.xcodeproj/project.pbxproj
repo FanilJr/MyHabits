@@ -71,19 +71,19 @@
 			isa = PBXGroup;
 			children = (
 				844FC44228571DB8002F42C2 /* HabitsStore.swift */,
-				844FC44C2857A7E0002F42C2 /* HabitViewController.swift */,
-				844FC446285720AB002F42C2 /* InfoViewController.swift */,
-				844FC44428571F29002F42C2 /* HabitsViewController.swift */,
-				844FC448285745EF002F42C2 /* ProgressCollectionViewCell.swift */,
-				844FC44A285746B9002F42C2 /* HabitCollectionViewCell.swift */,
 				844FC42E28571A08002F42C2 /* AppDelegate.swift */,
 				844FC43028571A08002F42C2 /* SceneDelegate.swift */,
+				844FC446285720AB002F42C2 /* InfoViewController.swift */,
+				844FC44428571F29002F42C2 /* HabitsViewController.swift */,
+				844FC44E28588D7F002F42C2 /* HabitDetailsViewController.swift */,
+				844FC45028588E73002F42C2 /* HabitDetailsTableViewCell.swift */,
+				844FC44A285746B9002F42C2 /* HabitCollectionViewCell.swift */,
+				844FC448285745EF002F42C2 /* ProgressCollectionViewCell.swift */,
+				844FC44C2857A7E0002F42C2 /* HabitViewController.swift */,
 				844FC43428571A08002F42C2 /* Main.storyboard */,
 				844FC43728571A10002F42C2 /* Assets.xcassets */,
 				844FC43928571A10002F42C2 /* LaunchScreen.storyboard */,
 				844FC43C28571A10002F42C2 /* Info.plist */,
-				844FC44E28588D7F002F42C2 /* HabitDetailsViewController.swift */,
-				844FC45028588E73002F42C2 /* HabitDetailsTableViewCell.swift */,
 			);
 			path = MyHabits;
 			sourceTree = "<group>";

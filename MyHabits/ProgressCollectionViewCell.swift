@@ -9,6 +9,15 @@ import UIKit
 
 class ProgressCollectionViewCell: UICollectionViewCell {
     
+    var progressLevel: Float? {
+        
+        didSet {
+            
+            progressView.progress = progressLevel ?? 0
+            
+        }
+    }
+    
     private let textLabel: UILabel = {
         
         let text = UILabel()
@@ -20,7 +29,7 @@ class ProgressCollectionViewCell: UICollectionViewCell {
         
     }()
     
-    private var resultProgress: UILabel = {
+    var resultProgress: UILabel = {
         
         let result = UILabel()
         result.font = UIFont.systemFont(ofSize: 13, weight: .semibold)

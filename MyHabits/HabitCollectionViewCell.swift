@@ -10,15 +10,19 @@ import UIKit
 class HabitCollectionViewCell: UICollectionViewCell {
     
     var habit: Habit? {
+        
         didSet {
+            
             namelabel.text = habit?.name
             namelabel.textColor = habit?.color
             dateLabel.text = habit?.dateString
             trackLabel.text = "Счётчик \(habit?.trackDates.count ?? 0)"
             if ((habit?.isAlreadyTakenToday) == true) {
+                
                 imageView.image = UIImage.init(systemName: "checkmark.circle.fill")
             } else {
                 imageView.image = UIImage.init(systemName: "circle")
+                
             }
         }
     }
@@ -67,31 +71,39 @@ class HabitCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         backgroundColor = .white
         self.layer.cornerRadius = 8
         setup()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(trackHabitGesture))
         imageView.addGestureRecognizer(tapGesture)
+        
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
         setup()
     }
     
 }
 
 protocol HabitCollectionViewCellDelegate {
+    
     func updateData()
+    
 }
 
 private extension HabitCollectionViewCell {
     
     @objc func trackHabitGesture(gesture: UITapGestureRecognizer) {
+        
         if(habit?.isAlreadyTakenToday == false) {
+            
             HabitsStore.shared.track(habit!)
             delegate?.updateData()
+            
         }
     }
     
@@ -99,6 +111,7 @@ private extension HabitCollectionViewCell {
         [namelabel, dateLabel, trackLabel, imageView].forEach { contentView.addSubview($0) }
         
         NSLayoutConstraint.activate([
+            
             namelabel.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 20),
             namelabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 20),
             namelabel.trailingAnchor.constraint(equalTo: imageView.leadingAnchor,constant: -40),
@@ -113,6 +126,7 @@ private extension HabitCollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -25),
             imageView.heightAnchor.constraint(equalToConstant: 38),
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
+            
         ])
     }
 }
