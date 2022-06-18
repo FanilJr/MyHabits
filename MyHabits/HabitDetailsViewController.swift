@@ -45,7 +45,7 @@ class HabitDetailsViewController: UIViewController {
         view.backgroundColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Править", style: .plain, target: self, action: #selector(edit))
         
-    //    tableViews.delegate = self
+        tableViews.delegate = self
         tableViews.dataSource = self
         
         setup()
@@ -83,6 +83,7 @@ private extension HabitDetailsViewController {
         editNavigationController.modalPresentationStyle = .fullScreen
         present(editNavigationController, animated: true, completion: nil)
         
+        
     }
     
     func setup() {
@@ -98,9 +99,9 @@ private extension HabitDetailsViewController {
     }
 }
 
-//extension HabitDetailsViewController: UITableViewDelegate {
+extension HabitDetailsViewController: UITableViewDelegate {
     
-//}
+}
 
 extension HabitDetailsViewController: UITableViewDataSource {
     

@@ -124,7 +124,7 @@ class HabitViewController: UIViewController {
         view.backgroundColor = .white
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(createHabit))
-        navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(cancelCreateHabit))
+        navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(cancelCreatingHabit))
         navigationController?.navigationBar.tintColor = UIColor(named: "Purple")
         navigationController?.navigationBar.scrollEdgeAppearance = UINavigationBarAppearance()
 
@@ -143,44 +143,42 @@ class HabitViewController: UIViewController {
 }
     
 extension HabitViewController {
-    
-    @objc func deleteHabit() {
-        let habitsStore = HabitsStore.shared
-        let alertController = UIAlertController(title: "Удалить привычку", message: "Вы хотите удалить привычку \(habit?.name ?? " ") ?", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Отмена", style: .default, handler: nil))
-        alertController.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: {
-            _ in for (index, storaheHabit) in habitsStore.habits.enumerated() {
-                if storaheHabit.name == self.habit?.name {
-                    habitsStore.habits.remove(at: index)
-                    self.navigationController?.dismiss(animated: false, completion: nil)
-                    break
-                }
-            }
-        }))
-        present(alertController, animated: true, completion: nil)
+    @objc func cancelCreatingHabit() {
+        dismiss(animated: true, completion: nil)
     }
-    
+
     @objc func createHabit() {
-        let habitsStore = HabitsStore.shared
-        let habitik = Habit(name: textField.text!, date: datePicket.date, color: colorView.backgroundColor!)
+        let store = HabitsStore.shared
+        let newHabit = Habit(name: textField.text!, date: datePicket.date, color: colorView.backgroundColor!)
         
         if state == .save {
-            habitsStore.habits.append(habitik)
+           store.habits.append(newHabit)
         } else {
-            for (index, storageHabit) in habitsStore.habits.enumerated() {
+            for (index, storageHabit) in store.habits.enumerated() {
                 if storageHabit.name == habit?.name {
-                    habitik.trackDates = storageHabit.trackDates
-                    habitsStore.habits[index] = habitik
-                    habit? = habitik
+                    newHabit.trackDates = storageHabit.trackDates
+                    store.habits[index] = newHabit
+                    habit? = newHabit
                 }
             }
         }
         dismiss(animated: true, completion: nil)
     }
-        
-    @objc func cancelCreateHabit() {
-        dismiss(animated: true, completion: nil)
-        
+    
+    @objc func deleteHabit() {
+        let store = HabitsStore.shared
+        let alertController = UIAlertController(title: "Удалить привычку", message: "Вы хотите удалить привычку \(habit?.name ?? " ") ?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Отмена", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: {
+              _ in for (index, storageHabit) in store.habits.enumerated() {
+                    if storageHabit.name == self.habit?.name {
+                        store.habits.remove(at: index)
+                        self.navigationController?.dismiss(animated: false, completion: nil)
+                        break
+                    }
+                }
+        }))
+        present(alertController, animated: true, completion: nil)
     }
     
     @objc private func colorGesture(gesure: UITapGestureRecognizer) {

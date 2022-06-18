@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-      if #available(iOS 15, *) {
+     /* if #available(iOS 15, *) {
             
            let appearance = UINavigationBarAppearance()
           appearance.configureWithDefaultBackground()
@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
           UITabBar.appearance().standardAppearance = tabbarNew
           UITabBar.appearance().scrollEdgeAppearance = tabbarNew
           */
-        }
+        }*/
         
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.

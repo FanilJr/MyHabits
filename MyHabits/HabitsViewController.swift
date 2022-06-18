@@ -23,12 +23,13 @@ class HabitsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         collectionsView.backgroundColor = UIColor(named: "LightGray")
         collectionsView.delegate = self
         collectionsView.dataSource = self
-        
+        collectionsView.reloadData()
         setup()
+       
 
     }
     
@@ -39,15 +40,16 @@ class HabitsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         collectionsView.reloadData()
+        updateData()
+        print("Проверка viewWillAppear")
     }
     
     func bluer() {
+        
         let bluer = UIBlurEffect(style: .light)
         let bluerEffect = UIVisualEffectView(effect: bluer)
         bluerEffect.frame = (tabBarController?.tabBar.bounds)!
-        //view.addSubview(bluerEffect)
-        
-        //navigationController?.navigationBar.addSubview(bluerEffect)
+
     }
 }
 
@@ -119,7 +121,7 @@ extension HabitsViewController: UICollectionViewDataSource {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProgressCollectionViewCell", for: indexPath) as! ProgressCollectionViewCell
             cell.progressLevel = HabitsStore.shared.todayProgress
-            cell.resultProgress.text = "\(Int((cell.progressLevel ?? 0) * 100))%"
+            cell.resultProgressBarLabel.text = "\(Int((cell.progressLevel ?? 0) * 100))%"
             return cell
             
         case 1:

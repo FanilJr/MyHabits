@@ -5,7 +5,6 @@
 //  Created by Fanil_Jr on 13.06.2022.
 //
 
-import Foundation
 import UIKit
 
 /// Класс для хранения данных о привычке.

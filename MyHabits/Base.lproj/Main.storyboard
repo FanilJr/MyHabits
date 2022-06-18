@@ -52,10 +52,9 @@
         <!--Navigation Controller-->
         <scene sceneID="zTY-Ax-mdj">
             <objects>
-                <navigationController id="R4j-Bx-Fgu" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="oik-5V-6Gp"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="R4j-Bx-Fgu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Se-zv-w4m">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -71,7 +70,7 @@
             <objects>
                 <viewController id="gVu-yG-S8U" customClass="HabitViewController" customModule="MyHabits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mZQ-jq-tyi" customClass="HabitCollectionViewCell" customModule="MyHabits" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="8Za-0d-PQ4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -138,7 +137,7 @@
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="rectangle.grid.1x2.fill" catalog="system" width="128" height="101"/>
         <namedColor name="Purple">
-            <color red="0.63099998235702515" green="0.086000002920627594" blue="0.80000001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.63137254901960782" green="0.086274509803921567" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
