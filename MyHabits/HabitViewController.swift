@@ -121,6 +121,7 @@ class HabitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(createHabit))
@@ -129,8 +130,10 @@ class HabitViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = UINavigationBarAppearance()
 
         setup()
+        
         let colorGesture = UITapGestureRecognizer(target: self, action: #selector(colorGesture))
         colorView.addGestureRecognizer(colorGesture)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,17 +146,23 @@ class HabitViewController: UIViewController {
 }
     
 extension HabitViewController {
+    
     @objc func cancelCreatingHabit() {
+        
         dismiss(animated: true, completion: nil)
+        
     }
 
     @objc func createHabit() {
+        
         let store = HabitsStore.shared
         let newHabit = Habit(name: textField.text!, date: datePicket.date, color: colorView.backgroundColor!)
         
         if state == .save {
            store.habits.append(newHabit)
+            
         } else {
+            
             for (index, storageHabit) in store.habits.enumerated() {
                 if storageHabit.name == habit?.name {
                     newHabit.trackDates = storageHabit.trackDates
@@ -166,6 +175,7 @@ extension HabitViewController {
     }
     
     @objc func deleteHabit() {
+        
         let store = HabitsStore.shared
         let alertController = UIAlertController(title: "Удалить привычку", message: "Вы хотите удалить привычку \(habit?.name ?? " ") ?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Отмена", style: .default, handler: nil))
@@ -182,29 +192,39 @@ extension HabitViewController {
     }
     
     @objc private func colorGesture(gesure: UITapGestureRecognizer) {
+        
         presentColor(colorView.backgroundColor!)
+        
     }
     
     private func presentColor(_ color: UIColor) {
+        
         let pickerViewController = UIColorPickerViewController()
         pickerViewController.delegate = self
         pickerViewController.selectedColor = color
         pickerViewController.title = "Выберите цвет"
         present(pickerViewController, animated: true, completion: nil)
+        
     }
     
     func setup() {
+        
         [nameLabel,textField,colorLabel,colorView,timeLabel,timeDescription,datePicket].forEach { view.addSubview($0) }
      
         if state == .edit {
+            
             view.addSubview(deleteButton)
+            
             NSLayoutConstraint.activate([
+                
                 deleteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 deleteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+                
             ])
         }
         
         NSLayoutConstraint.activate([
+            
             nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 21),
             nameLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
         
@@ -226,6 +246,7 @@ extension HabitViewController {
 
             datePicket.centerYAnchor.constraint(equalTo: timeDescription.centerYAnchor),
             datePicket.leftAnchor.constraint(equalTo: timeDescription.rightAnchor)
+            
         ])
     }
     
@@ -234,8 +255,10 @@ extension HabitViewController {
 extension HabitViewController: UIColorPickerViewControllerDelegate {
     
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        
         colorView.backgroundColor = viewController.selectedColor
         textField.textColor = colorView.backgroundColor
+        
     }
 }
 
