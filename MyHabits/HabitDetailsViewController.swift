@@ -91,10 +91,12 @@ private extension HabitDetailsViewController {
         view.addSubview(tableViews)
         
         NSLayoutConstraint.activate([
+            
             tableViews.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableViews.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableViews.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableViews.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            
         ])
     }
 }
@@ -120,6 +122,7 @@ extension HabitDetailsViewController: UITableViewDataSource {
         if let isHabit = habit {
             
             if HabitsStore.shared.habit(isHabit, isTrackedIn: HabitsStore.shared.dates[HabitsStore.shared.dates.count - indexPath.row - 1]) {
+                
                 cell.accessoryType = .checkmark
                 cell.tintColor = UIColor(named: "Purple")
                 

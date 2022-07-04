@@ -16,7 +16,7 @@ class HabitViewController: UIViewController {
             textField.text = habit?.name
             textField.textColor = habit?.color
             colorView.backgroundColor = habit?.color
-            datePicket.date = habit?.date ?? Date()
+            datePicker.date = habit?.date ?? Date()
         }
     }
     
@@ -95,7 +95,7 @@ class HabitViewController: UIViewController {
         
     }()
     
-    private let datePicket: UIDatePicker = {
+    private let datePicker: UIDatePicker = {
         
         var picker = UIDatePicker()
         picker.tintColor = UIColor(named: "Purple")
@@ -156,7 +156,7 @@ extension HabitViewController {
     @objc func createHabit() {
         
         let store = HabitsStore.shared
-        let newHabit = Habit(name: textField.text!, date: datePicket.date, color: colorView.backgroundColor!)
+        let newHabit = Habit(name: textField.text!, date: datePicker.date, color: colorView.backgroundColor!)
         
         if state == .save {
            store.habits.append(newHabit)
@@ -209,7 +209,7 @@ extension HabitViewController {
     
     func setup() {
         
-        [nameLabel,textField,colorLabel,colorView,timeLabel,timeDescription,datePicket].forEach { view.addSubview($0) }
+        [nameLabel,textField,colorLabel,colorView,timeLabel,timeDescription,datePicker].forEach { view.addSubview($0) }
      
         if state == .edit {
             
@@ -244,8 +244,8 @@ extension HabitViewController {
             timeDescription.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 7),
             timeDescription.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
 
-            datePicket.centerYAnchor.constraint(equalTo: timeDescription.centerYAnchor),
-            datePicket.leftAnchor.constraint(equalTo: timeDescription.rightAnchor)
+            datePicker.centerYAnchor.constraint(equalTo: timeDescription.centerYAnchor),
+            datePicker.leftAnchor.constraint(equalTo: timeDescription.rightAnchor)
             
         ])
     }
